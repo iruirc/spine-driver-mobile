@@ -22,7 +22,6 @@ namespace = mobile, mcp-devices, claude-in-mobile
 ## Targets
 
 ios-simulator
-ios-device
 android-emulator
 android-device
 macos
@@ -30,26 +29,17 @@ browser
 
 ## Capabilities: ios-simulator
 
-launch stop install reset_state
-ui_tree find assert screenshot video logs
+launch stop install
+ui_tree find assert screenshot logs
 tap type swipe gesture key
 deeplink permissions location
-a11y_audit visual_baseline performance
-record_replay multi_device
-
-## Capabilities: ios-device
-
-launch stop install reset_state
-ui_tree find assert screenshot video logs
-tap type swipe gesture key
-deeplink permissions
-a11y_audit visual_baseline performance
+a11y_audit visual_baseline
 record_replay multi_device
 
 ## Capabilities: android-emulator
 
-launch stop install reset_state
-ui_tree find assert screenshot video logs
+launch stop install
+ui_tree find assert screenshot logs
 tap type swipe gesture key
 deeplink permissions location webview
 network_conditions
@@ -58,8 +48,8 @@ record_replay multi_device
 
 ## Capabilities: android-device
 
-launch stop install reset_state
-ui_tree find assert screenshot video logs
+launch stop install
+ui_tree find assert screenshot logs
 tap type swipe gesture key
 deeplink permissions webview
 network_conditions
@@ -70,18 +60,27 @@ record_replay multi_device
 
 launch stop
 ui_tree find assert screenshot logs
-tap type key
+tap type swipe gesture key
 viewport
-performance
+a11y_audit visual_baseline performance
+record_replay
 
 ## Capabilities: browser
 
 launch stop
 ui_tree find assert screenshot
-tap type key
+tap type swipe gesture key
 deeplink
+visual_baseline
+record_replay
 
 ## Procedure
+
+**Physical iOS devices are not a target.** The server discovers them and can touch and read the
+screen through WebDriverAgent, but every app-lifecycle path — launch, stop, install, deep link,
+permissions, hardware keys, logs — is `xcrun simctl` or AppleScript aimed at Simulator.app, and
+reaches simulators only. A run that cannot start the app under test is a run for a human, so the
+surface is left undeclared and resolves to `unavailable` rather than to a half-drivable `ok`.
 
 The modular edition defaults to no platform plugins loaded, so what this table declares is what the
 server can do when fully installed, not what a given machine has. Platform plugins (android, ios,
