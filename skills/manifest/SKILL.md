@@ -33,7 +33,7 @@ browser
 launch stop install reset_state
 ui_tree find assert screenshot video logs
 tap type swipe gesture key
-deeplink background permissions alerts viewport locale
+deeplink background permissions alerts location viewport locale
 a11y_audit visual_baseline performance
 record_replay multi_device
 
@@ -51,7 +51,7 @@ record_replay multi_device
 launch stop install reset_state
 ui_tree find assert screenshot video logs
 tap type swipe gesture key
-deeplink background permissions alerts viewport locale webview
+deeplink background permissions alerts location viewport locale webview
 network_conditions
 a11y_audit visual_baseline performance
 record_replay multi_device
