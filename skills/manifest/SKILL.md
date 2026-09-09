@@ -33,7 +33,7 @@ browser
 launch stop install reset_state
 ui_tree find assert screenshot video logs
 tap type swipe gesture key
-deeplink background permissions alerts viewport locale webview
+deeplink background permissions alerts viewport locale
 a11y_audit visual_baseline performance
 record_replay multi_device
 
@@ -42,8 +42,7 @@ record_replay multi_device
 launch stop install reset_state
 ui_tree find assert screenshot video logs
 tap type swipe gesture key
-deeplink background permissions alerts viewport locale webview
-push biometrics camera location
+deeplink background permissions alerts viewport locale
 a11y_audit visual_baseline performance
 record_replay multi_device
 
@@ -63,7 +62,7 @@ launch stop install reset_state
 ui_tree find assert screenshot video logs
 tap type swipe gesture key
 deeplink background permissions alerts viewport locale webview
-push biometrics camera location network_conditions
+network_conditions
 a11y_audit visual_baseline performance
 record_replay multi_device
 
@@ -78,17 +77,18 @@ performance
 ## Capabilities: browser
 
 launch stop
-ui_tree find assert screenshot logs
+ui_tree find assert screenshot
 tap type key
-deeplink viewport locale
+deeplink
 performance
 
 ## Procedure
 
-The modular edition loads platforms on demand and defaults to none, so what this table declares is
-what the server can do fully installed, not what a given machine has. Ask it before planning around
-a surface: `device(action:'list_modules')` reports what is loaded. The answer narrows this table and
-never widens it.
+The modular edition defaults to no platform plugins loaded, so what this table declares is what the
+server can do when fully installed, not what a given machine has. Platform plugins (android, ios,
+web, desktop) are loaded at server startup. Check which are installed at runtime via the shell:
+`mcp-devices platforms` lists them. A surface you declare but that is absent on a machine narrows
+what this table promises and is not an error — the server will report "unavailable" for that surface.
 
 Reach for the text tree before a screenshot — it is an order of magnitude cheaper and answers most
 of what a screenshot is reached for.
