@@ -1,9 +1,9 @@
 ---
 name: manifest
-description: Driver manifest for mobile-driver. Data, not instructions — the blocks spine-toolkit reads to learn which tools drive an app, which surfaces they reach, and what each surface supports.
+description: Driver manifest for spine-driver-mobile. Data, not instructions — the blocks spine-toolkit reads to learn which tools drive an app, which surfaces they reach, and what each surface supports.
 ---
 
-# mobile-driver Manifest
+# spine-driver-mobile Manifest
 
 > This skill is **data**, not instructions. spine-toolkit reads the blocks below by invoking this
 > skill; there is no procedure here to follow.
