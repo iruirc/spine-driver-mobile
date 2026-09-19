@@ -12,12 +12,12 @@ Follow the installation instructions for [mcp-devices](https://github.com/AlexGl
 
 ## Using the Driver
 
-In your project's `CLAUDE-spine-toolkit.md`, declare this driver in the `## Validation` block:
+In your project's `CLAUDE-spine-toolkit.md`, declare this driver in the `## Task defaults` block:
 
 ```markdown
-## Validation
+## Task defaults
 
-driver: spine-driver-mobile
+[DRIVER] = [spine-driver-mobile]
 ```
 
 The manifest in `skills/manifest/SKILL.md` documents which platforms and capabilities are supported. See [spine-toolkit: docs/building-a-driver.md](https://github.com/iruirc/spine-toolkit/blob/main/docs/building-a-driver.md) for the driver contract and architecture.
