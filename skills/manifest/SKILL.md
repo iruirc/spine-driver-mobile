@@ -103,3 +103,7 @@ Choose the target from what is actually attached rather than pinning a device: a
 one device is wrong on every machine but its author's.
 
 Leave the app stopped when the run ends, and do not reset device defaults unless the task asked.
+
+WebDriverAgent stays up between calls and no tool closes it: the server stops it only when it exits.
+Its `xcodebuild … test-without-building` process is safe to stop after a run — the next iOS call starts
+a new one — and the orchestrator offers exactly that when a stage leaves it running.
