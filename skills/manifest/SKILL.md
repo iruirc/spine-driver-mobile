@@ -91,13 +91,13 @@ what this table promises and is not an error — the server will report "unavail
 Reach for the text tree before a screenshot — it is an order of magnitude cheaper and answers most
 of what a screenshot is reached for.
 
-**Several taps that make one gesture go in one `flow(action:'batch')`.** A hidden menu opened by a
-burst of taps is not recognised when each tap is its own `input` call: the gap between calls is
-longer than the app's recognition window.
+**Taps the app reads as one sequence go in one `flow` batch, with hints off on each tap.** A hidden
+menu opened by a burst of taps is not recognised otherwise: separate `input` calls, or the UI tree
+fetched for hints after each tap, leave gaps longer than the app's recognition window.
 
-**Raw `x`/`y` given to `input` are pixels of the last screenshot of that device**, scaled by its
-preset, while `ui(action:'tree'|'find')` reports device coordinates. Read a tap's coordinates off a
-screenshot in the preset you tap after, or tap by text, id or label instead.
+**Raw `x`/`y` given to `input` are pixels of the last full screenshot of that device**, scaled by
+its preset; before one, or after a diff capture, they are device coordinates, as the `ui` tree and
+find report them. Read coordinates off the screenshot you tap right after, or tap by text, id or label.
 
 Choose the target from what is actually attached rather than pinning a device: a manifest that names
 one device is wrong on every machine but its author's.
