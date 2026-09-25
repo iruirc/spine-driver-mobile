@@ -31,7 +31,7 @@ browser
 
 launch stop install
 ui_tree find assert screenshot logs
-tap type swipe gesture key
+tap type swipe key
 deeplink permissions location
 a11y_audit visual_baseline
 record_replay multi_device
@@ -40,7 +40,7 @@ record_replay multi_device
 
 launch stop install
 ui_tree find assert screenshot logs
-tap type swipe gesture key
+tap type swipe key
 deeplink permissions location webview
 network_conditions
 a11y_audit visual_baseline performance
@@ -50,7 +50,7 @@ record_replay multi_device
 
 launch stop install
 ui_tree find assert screenshot logs
-tap type swipe gesture key
+tap type swipe key
 deeplink permissions webview
 network_conditions
 a11y_audit visual_baseline performance
@@ -60,7 +60,7 @@ record_replay multi_device
 
 launch stop
 ui_tree find assert screenshot logs
-tap type swipe gesture key
+tap type swipe key
 viewport
 a11y_audit visual_baseline performance
 record_replay
@@ -69,7 +69,7 @@ record_replay
 
 launch stop
 ui_tree find assert screenshot
-tap type swipe gesture key
+tap type swipe key
 deeplink
 visual_baseline
 record_replay
@@ -90,6 +90,14 @@ what this table promises and is not an error — the server will report "unavail
 
 Reach for the text tree before a screenshot — it is an order of magnitude cheaper and answers most
 of what a screenshot is reached for.
+
+**Several taps that make one gesture go in one `flow(action:'batch')`.** A hidden menu opened by a
+burst of taps is not recognised when each tap is its own `input` call: the gap between calls is
+longer than the app's recognition window.
+
+**Raw `x`/`y` given to `input` are pixels of the last screenshot of that device**, scaled by its
+preset, while `ui(action:'tree'|'find')` reports device coordinates. Read a tap's coordinates off a
+screenshot in the preset you tap after, or tap by text, id or label instead.
 
 Choose the target from what is actually attached rather than pinning a device: a manifest that names
 one device is wrong on every machine but its author's.
