@@ -12,7 +12,7 @@ Follow the installation instructions for [mcp-devices](https://github.com/AlexGl
 
 ## Using the Driver
 
-In your project's `CLAUDE-spine-toolkit.md`, declare this driver in the `## Task defaults` block:
+In your project config (`SPINE.md`), declare this driver in the `## Task defaults` block:
 
 ```markdown
 ## Task defaults
