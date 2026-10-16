@@ -1,0 +1,27 @@
+{
+  "name": "spine-driver-mobile",
+  "version": "1.3.0",
+  "description": "Driver adapter for spine-toolkit: declares what the mcp-devices / claude-in-mobile MCP server can drive, per surface.",
+  "author": {
+    "name": "Dmitry Nuzhin"
+  },
+  "repository": "https://github.com/iruirc/spine-driver-mobile",
+  "license": "MIT",
+  "keywords": [
+    "spine",
+    "driver",
+    "mobile"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Spine Driver Mobile",
+    "shortDescription": "Driver data spine-toolkit reads to drive an app",
+    "longDescription": "Driver adapter for spine-toolkit: declares what the mcp-devices / claude-in-mobile MCP server can drive, per surface.",
+    "developerName": "Dmitry Nuzhin",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/iruirc/spine-driver-mobile"
+  }
+}
