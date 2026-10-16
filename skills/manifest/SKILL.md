@@ -9,15 +9,18 @@ description: Driver manifest for spine-driver-mobile. Data, not instructions —
 > skill; there is no procedure here to follow.
 
 Adapter for the MCP server published as `mcp-devices` (named `claude-in-mobile` before 4.0, and
-still shipped under that name as the all-in-one edition). The adapter does not install the server —
-install it separately and register it with your MCP client.
+still shipped under that name as the all-in-one edition). The plugin ships the server: its `.mcp.json`
+runs the all-in-one edition `claude-in-mobile@4.4.1` through `npx`, so installing the driver registers
+it in Claude Code and in Codex.
 
 ## Driver
 
-Both editions print `mobile` as the key in their own install instructions, so it leads the list; the
-package names follow for anyone who registered it under those instead.
+The key in this plugin's `.mcp.json` is `mobile`, the one both editions print in their own install
+instructions, so it leads the list; Claude Code names the plugin's server
+`plugin_spine-driver-mobile_mobile`, which follows. The package names are for anyone who registered the
+server by hand under those instead.
 
-namespace = mobile, mcp-devices, claude-in-mobile
+namespace = mobile, plugin_spine-driver-mobile_mobile, mcp-devices, claude-in-mobile
 
 ## Targets
 
@@ -82,7 +85,8 @@ permissions, hardware keys, logs — is `xcrun simctl` or AppleScript aimed at S
 reaches simulators only. A run that cannot start the app under test is a run for a human, so the
 surface is left undeclared and resolves to `unavailable` rather than to a half-drivable `ok`.
 
-The modular edition defaults to no platform plugins loaded, so what this table declares is what the
+The all-in-one edition this plugin ships loads every platform. A server registered by hand as the
+modular edition defaults to no platform plugins loaded, so what this table declares is what the
 server can do when fully installed, not what a given machine has. Platform plugins (android, ios,
 web, desktop) are loaded at server startup. Check which are installed at runtime via the shell:
 `mcp-devices platforms` lists them. A surface you declare but that is absent on a machine narrows
