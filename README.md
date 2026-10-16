@@ -25,7 +25,8 @@ export WDA_PATH=/path/to/appium-webdriveragent
 
 Running a build of the server of your own: in Codex, register it under the key `mobile` in your
 configuration — it replaces the plugin's. In Claude Code a server you register yourself runs next to
-the plugin's rather than instead of it; point a copy of the plugin's `.mcp.json` at your build instead.
+the plugin's rather than instead of it, unless it has the same command and arguments; point a copy of
+the plugin's `.mcp.json` at your build instead.
 
 The manifest also recognises a server registered by hand under `mcp-devices` or `claude-in-mobile`.
 
