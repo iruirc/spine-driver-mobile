@@ -17,7 +17,8 @@ in `~/.codex/config.toml`.
 
 iOS needs WebDriverAgent. Install it the way the server's documentation says
 (`npm install -g appium && appium driver install xcuitest`), or, if you installed it some other way,
-export its path in your shell profile — the plugin passes it through to the server:
+export its path in your shell profile — Claude Code and Codex both hand it to the server (Codex through
+the plugin's `env_vars`):
 
 ```bash
 export WDA_PATH=/path/to/appium-webdriveragent

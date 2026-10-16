@@ -2,9 +2,13 @@
   "mcpServers": {
     "mobile": {
       "command": "npx",
-      "args": ["-y", "claude-in-mobile@4.4.1"],
-      "env": { "WDA_PATH": "${WDA_PATH:-}" },
-      "env_vars": ["WDA_PATH"],
+      "args": [
+        "-y",
+        "claude-in-mobile@4.4.1"
+      ],
+      "env_vars": [
+        "WDA_PATH"
+      ],
       "default_tools_approval_mode": "approve",
       "startup_timeout_sec": 120
     }
