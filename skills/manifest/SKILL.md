@@ -85,12 +85,17 @@ permissions, hardware keys, logs — is `xcrun simctl` or AppleScript aimed at S
 reaches simulators only. A run that cannot start the app under test is a run for a human, so the
 surface is left undeclared and resolves to `unavailable` rather than to a half-drivable `ok`.
 
-The all-in-one edition this plugin ships loads every platform. A server registered by hand as the
-modular edition defaults to no platform plugins loaded, so what this table declares is what the
-server can do when fully installed, not what a given machine has. Platform plugins (android, ios,
-web, desktop) are loaded at server startup. Check which are installed at runtime via the shell:
-`mcp-devices platforms` lists them. A surface you declare but that is absent on a machine narrows
-what this table promises and is not an error — the server will report "unavailable" for that surface.
+What this table declares is what the server can do when fully installed, not what a given machine
+has. The server loads its platforms (android, ios, web, desktop, …) at startup, from the first of:
+the `MCP_DEVICES_PLATFORMS` variable, the machine's `~/.mcp-devices/config.json`, and — only when
+neither exists — every platform of the all-in-one edition this plugin ships. A machine set up once
+for one platform keeps only that one, for every edition. `mcp-devices platforms` lists what is
+enabled.
+
+**A platform the server did not load is a setup step, not a missing capability.** When a tool
+answers `Platform '<name>' is not installed`, stop driving that surface and tell the user the one
+command that enables it, and that the MCP client must be restarted after it:
+`mcp-devices install <name>`. Until then the surface is `unavailable` — not an error.
 
 Reach for the text tree before a screenshot — it is an order of magnitude cheaper and answers most
 of what a screenshot is reached for.
