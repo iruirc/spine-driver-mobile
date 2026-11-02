@@ -24,6 +24,15 @@ the plugin's `env_vars`):
 export WDA_PATH=/path/to/appium-webdriveragent
 ```
 
+Known limitation on iOS: `claude-in-mobile@4.4.1` cannot read the accessibility tree. WebDriverAgent
+sends `"label": null` for a node without a label, the server's schema accepts a missing field but not a
+null one, and the whole tree is reported as empty ("WDA returned an empty accessibility tree"). Taps and
+screenshots work; reading the screen and asserting on it do not, so a validation that needs them ends
+FAILED on the tool. The fix is
+[AlexGladkov/claude-in-mobile#74](https://github.com/AlexGladkov/claude-in-mobile/pull/74); the version
+in `.mcp.json` moves to the first release that carries it. Until then, a build of the server with that
+fix, registered as described below, reads the tree. Android is not affected.
+
 Running a build of the server of your own: in Codex, register it under the key `mobile` in your
 configuration — it replaces the plugin's. In Claude Code a server you register yourself runs next to
 the plugin's rather than instead of it, unless it has the same command and arguments; point a copy of
